@@ -30,9 +30,12 @@ $font-line-height: 1.2em;
   line-height: $font-line-height;
 }
 
-$h-anchor-index: 6;
 @for $i from 1 through 6 {
   .h#{$i} {
-    font-size:
+    $value: round( $font-size-max / $i );
+    @if( $value < $font-size-min ) {
+      $value: $font-size-min;
+    }
+    font-size: $value;
   }
 }
