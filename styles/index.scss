@@ -1,0 +1,38 @@
+/*
+  Font-size is base on the smallest screen length…
+  … and deduced afterwards.
+*/
+$font-size-default: 10vmin;
+/*
+  Font-size is comprised between a minimum and a maximum value
+  with the default size being the value passed to :root
+
+  Every derivated font-size (in root em) will be based upon it.
+*/
+$font-size-max: 20rem;
+$font-size-min: 5rem;
+
+/*
+  whatever the context,
+  we'd recommend to always have a line-height of 1.2 relative font-size
+*/
+$font-line-height: 1.2em;
+
+/*
+  _____
+
+  METRICS START HERE
+  _____
+*/
+
+:root{
+  font-size: $font-size-default;
+  line-height: $font-line-height;
+}
+
+$h-anchor-index: 6;
+@for $i from 1 through 6 {
+  .h#{$i} {
+    font-size:
+  }
+}
