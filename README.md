@@ -22,7 +22,7 @@ Browsers capabilities have evolved to offer a wide range of tools and shorthands
 - Antifragile typographic system;
 - Context aware layout and color palette;
 
-Could be cited some similar projects of note, like [LightningDesign System](https://www.lightningdesignsystem.com) from Salesforce or the ever expanding, gigantic omniscious pastafarian creature, [Bootstrap](https://getbootstrap.com/).
+Could be cited some similar projects of note, like [LightningDesign System](https://www.lightningdesignsystem.com) from Salesforce, [Foundation](http://foundation.zurb.com/), [Pure](http://purecss.io/), or the ever expanding, gigantic omniscious pastafarian creature, [Bootstrap](https://getbootstrap.com/).
 
 
 

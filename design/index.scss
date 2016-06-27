@@ -1,0 +1,122 @@
+/*
+_____
+
+A DESIGN SYSTEM
+_____
+*/
+
+$callisto: "⭐";
+$theme: "lighter";
+
+/*
+_____
+
+TYPOGRAPHY SETUP
+_____
+*/
+
+/*
+  Font-size is base on the smallest screen length…
+  … and deduced afterwards.
+*/
+$font-size-default: 2vmin;
+/*
+  Font-size is comprised between a minimum and a maximum value
+  with the default size being the value passed to :root
+
+  Every derivated font-size (in root em) will be based upon it.
+*/
+$font-size-max: 20rem;
+$font-size-min: 5rem;
+
+/*
+  whatever the context,
+  we'd recommend to always have a line-height of 1.2 relative font-size
+  1.2 is actually a bit arbitrary but allows a line to breathe,
+  between line n descenders and n+1 ascenders.
+*/
+$line-height: 1.2;
+$font-line-height: unquote("#{$line-height}em");
+
+/*
+  _____
+
+  METRICS START HERE
+  _____
+*/
+
+$gutter: ( $line-height * $font-size-default );
+
+/*
+  _____
+
+  CRITICAL SCAFFOLDING
+  _____
+*/
+
+%line-height {
+  line-height: $font-line-height;
+}
+
+:root{
+  @extend %line-height;
+  font-size: $font-size-default;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  @extend %line-height;
+  margin: 0;
+}
+
+.p {
+  & + & {
+    margin-top: $gutter;
+  }
+}
+
+@for $i from 1 through 6 {
+  .h#{$i} {
+    $value: round( $font-size-max / $i );
+    @if( $value < $font-size-min ) {
+      $value: $font-size-min;
+    }
+    font-size: $value;
+  }
+}
+
+.#{$callisto}{
+  &-group{
+    padding: $gutter;
+  }
+}
+
+[data-#{$callisto}-theme="#{$theme}"]{
+  color: white;
+  background-color: #ccc;
+}
+
+/*
+
+*/
