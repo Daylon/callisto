@@ -1,0 +1,39 @@
+{
+  "name": "callisto",
+  "version": "0.0.1",
+  "description": "Callisto is a lightweight, sensible design system putting an emphasis on low footprint, context and durability",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Daylon/callisto.git"
+  },
+  "keywords": [
+    "design",
+    "system",
+    "callisto",
+    "sass",
+    "css",
+    "typography"
+  ],
+  "author": "Julien Bouvet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Daylon/callisto/issues"
+  },
+  "homepage": "https://github.com/Daylon/callisto#readme",
+  "devDependencies": {
+    "del": "^2.2.1",
+    "gulp": "^3.9.1",
+    "gulp-ext-replace": "^0.3.0",
+    "gulp-htmlmin": "^2.0.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "sass-lint": "^1.8.2"
+  },
+  "dependencies": {
+    "normalize.css": "^4.1.1"
+  }
+}
