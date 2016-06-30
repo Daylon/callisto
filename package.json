@@ -40,5 +40,8 @@
   },
   "dependencies": {
     "normalize.css": "^4.1.1"
+  },
+  "eslintConfig": {
+    "extends": "xo"
   }
 }

@@ -18,16 +18,24 @@ _____
 /*
   Font-size is base on the smallest screen length…
   … and deduced afterwards.
+
+  In a ideal world, we'd go full steam ahead with viewport units
+  but since it's has been buggy with specs implementation being
+  all over the place, we'll stick with pixels for a while.
+
+  Anyway. If we did chose viewport unit, to guarantee the most reliable appereance, we'd choosen horizontal viewport unit (vw).
 */
-$font-size-default: 2vmin;
+$font-size-default: 11px;
+$font-size-default--print: 12pt;
 /*
   Font-size is comprised between a minimum and a maximum value
   with the default size being the value passed to :root
 
   Every derivated font-size (in root em) will be based upon it.
 */
-$font-size-max: 20rem;
-$font-size-min: 5rem;
+$font-size-max: 30rem;
+$font-size-min: 1rem;
+$font-scale: 5/6;
 
 /*
   whatever the context,
@@ -54,13 +62,55 @@ $gutter: ( $line-height * $font-size-default );
   _____
 */
 
+// https://css-tricks.com/snippets/sass/strip-unit-function/
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@function check-font-size( $value: 1rem ) {
+  @if $value < $font-size-min {
+    @return $font-size-min;
+  }
+  @if $value > $font-size-max {
+    @return $font-size-max;
+  }
+  @return $value;
+}
+
+@function get-font-size( $factor: 1 ) {
+  $candidate: ( $factor * $font-scale ) * strip-unit( $font-size-default );
+
+  @debug ($factor * $font-scale);
+  @if $candidate > 1 {
+    $candidate: round( $candidate );
+  }
+  // $candidate: unquote( "#{$candidate}rem" );
+  @debug $candidate;
+  @return check-font-size( $candidate );
+}
+
+%typesetting {
+  @extend %line-height;
+  font-size: $font-size-default;
+
+  @media print{
+    font-size: $font-size-default--print;
+  }
+}
+
 %line-height {
   line-height: $font-line-height;
 }
 
 :root{
-  @extend %line-height;
-  font-size: $font-size-default;
+  @extend %typesetting;
 }
 
 html {
@@ -77,6 +127,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
 }
 
 h1,
@@ -90,7 +141,10 @@ p {
   margin: 0;
 }
 
+p,
 .p {
+  font-size: get-font-size();
+
   & + & {
     margin-top: $gutter;
   }
