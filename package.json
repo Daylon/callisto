@@ -39,6 +39,7 @@
     "sass-lint": "^1.8.2"
   },
   "dependencies": {
+    "chromatic-sass": "^0.1.7",
     "normalize.css": "^4.1.1"
   },
   "eslintConfig": {

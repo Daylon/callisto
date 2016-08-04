@@ -2,6 +2,7 @@
 
 const GULP = require( 'gulp' )
 , SASS = require( 'gulp-sass' )
+, CHROMATIC_SASS = require( 'chromatic-sass' )
 , STYLE_LINT = require( 'sass-lint' )
 , GROUP_MEDIA_QUERIES = require( 'gulp-group-css-media-queries' )
 , CSSO = require( 'gulp-csso' )
@@ -18,8 +19,9 @@ let stylesCompile = function(){
   return GULP.src(
     `${PATHS.dir.styles.source}*${PATHS.file.sassStylesheets}`
   )
-  .pipe( SASS() )
-  /*.pipe( STYLE_LINT({
+  .pipe( SASS({functions: Object.assign({}, CHROMATIC_SASS)}) )
+  /*
+  .pipe( STYLE_LINT({
     reporters: [
       {
         formatter: 'string'
@@ -27,7 +29,8 @@ let stylesCompile = function(){
       }
     ]
     , syntax: 'scss'
-  }) )*/
+  }) )
+  */
   .pipe( GROUP_MEDIA_QUERIES() )
   .pipe( AUTOPREFIXER( autoprefixerOptions ) )
   .pipe( CSSO() )
