@@ -1,0 +1,21 @@
+.#{$callisto}-spacer{
+  display: block;
+  width: 100%;
+
+  &-s{
+    height: $half-gutter;
+  }
+
+  &-xs{
+    height: $gutter;
+  }
+
+  &,
+  &-m{
+    height: $double-gutter;
+  }
+
+  &-l{
+    height: $large-gutter;
+  }
+}

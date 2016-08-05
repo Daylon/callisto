@@ -1,9 +1,14 @@
 @mixin inclusive-groups( $gutter-value: 0 ){
   padding: 0 $gutter-value;
 
-  &:not(:first-of-type){
+  &:not(:first-of-type),
+  &.#{$callisto}-as-standalone{
     padding-top: $gutter-value;
     // if not the first group of the given tree, adds a padding-top
+  }
+
+  &.#{$callisto}-as-standalone{
+    padding-bottom: $gutter-value;
   }
 }
 
