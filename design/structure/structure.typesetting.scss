@@ -32,6 +32,10 @@ _____
   @return get-font-size( 1 );
 }
 
+%line-height {
+  line-height: $font-line-height;
+}
+
 %typesetting {
   @extend %line-height;
   font-size: $font-size-default;
@@ -41,12 +45,17 @@ _____
   }
 }
 
-%line-height {
-  line-height: $font-line-height;
-}
-
 :root{
   @extend %typesetting;
+}
+
+body{
+  font-size: .5em; // seems counter-intuitive?
+  // default font-size in an element without specificity should be considered as "minor"
+  // and, as such, being smaller then element with any/higher specificity
+  // any subsequent root-em defined in any child will, by the way,
+  // get the **root** value and not the body one.
+  font-family: sans-serif;
 }
 
 /*
