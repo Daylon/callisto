@@ -1,0 +1,17 @@
+.#{$callisto}-p{
+  &.#{$callisto}-as-body{
+    max-width: $line-max-width;
+    // if we consider a glyph as an box of 1em width by default
+    // e.g. the size of a lead piece the size of the letter "m"
+    // and considering than, better then the classic/recommended 60-75 max-signs
+    // of a given line, we should limit a line to 55 glyphs,
+    // a good rule of thumb would be to limit the width of a paragraph
+    // to 55em… But the web being as it is, this value do not output exactly
+    // what we'd expect.
+    // 44em is a priori a safe arbitrary compromise.
+    // see: https://stackoverflow.com/questions/5356752/webkit-hyphenation
+    // see: structure.typesetting
+    padding-left: $gutter;
+    padding-right: $gutter;
+  }
+}

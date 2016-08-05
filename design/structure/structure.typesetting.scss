@@ -79,17 +79,35 @@ $font-size-regular: get-regular-font-size();
 */
 
 .#{$callisto}-h,
+.#{$callisto}-chapter,
 .#{$callisto}-p {
   margin: 0;
+}
 
+.#{$callisto}-h,
+.#{$callisto}-p {
   & + .#{$callisto}-h,
   & + .#{$callisto}-p {
     margin-top: $gutter;
   }
 }
 
+.#{$callisto}-h,
+.#{$callisto}-chapter{
+  margin: 0;
+
+  & + .#{$callisto}-chapter{
+    margin-top: $double-gutter;
+  }
+}
+
 .#{$callisto}-h{
   @extend %line-height;
+}
+
+.#{$callisto}-chapter{
+  display: block;
+  width: 100%;
 }
 
 .#{$callisto}-p{
@@ -106,4 +124,48 @@ $font-size-regular: get-regular-font-size();
 
 .#{$callisto}-small{
   font-size: $font-size-min;
+}
+
+.#{$callisto}-is-justified{
+  &,
+  &-fuma{
+    text-align: justify;
+  }
+
+  &{
+    hyphens: auto;
+  }
+
+  &-fuma{ // full manual!
+    hyphens: manual;
+    // Please read the documentation:
+    // http://caniuse.com/#search=hyphen
+    // https://developer.mozilla.org/en/docs/Web/CSS/hyphens#Suggesting_line_break_opportunities
+    // While setting manually set your bodycopy is preferred,
+    // please note that it requires you to inform your content with proper html entities
+    // i.e.
+    //    &shy; and &hyphen;
+  }
+}
+
+.#{$callisto}-as-columns{
+
+  @media screen and (min-width: $line-max-width){
+    column-count: 2;
+    .#{$callisto}-p{
+      & + &{
+        padding-left: 0;
+      }
+
+      &:not(:last-of-type){
+        padding-right: 0;
+      }
+    }
+  }
+  @media screen and (min-width: ($line-max-width * 2)){
+    column-count: 3;
+  }
+  @media screen and (min-width: ($line-max-width * 3)){
+    column-count: 4;
+  }
 }

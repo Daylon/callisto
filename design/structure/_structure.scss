@@ -17,5 +17,6 @@ $font-scale: 6/5; // rythm -> 6:5, minor third
   1.2 is actually a bit arbitrary but allows a line to breathe,
   between line n descenders and n+1 ascenders.
 */
+$line-max-width: 44em;
 $line-height: $font-scale;
 $font-line-height: unquote("#{$line-height}em");

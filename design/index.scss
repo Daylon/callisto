@@ -24,6 +24,11 @@ Dependencies
 
 
 /*
-  once there, any library may be influenced by custom values from themes
+  Once there, any library may be influenced by custom values from themes
+  Please note that some basic transitions beside "css reset" may
+  already happened at this point and may impacts the elements below
+  (e.g. structure.typesetting which impacts both headings and paragraphs)
 */
 @import 'content/content.headings';
+@import 'content/content.chapters';
+@import 'content/content.paragraphs';
