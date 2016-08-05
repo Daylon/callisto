@@ -1,0 +1,52 @@
+/*
+_____
+
+COLORS
+_____
+*/
+
+$color-white-apex: #f2f2f2;
+$color-black-apex: #222;
+
+$color-white-apex: #fff;
+$color-black-apex: #000;
+
+
+$color--default: #F710DF;
+$color-list--context: chromatic-scale(black, white, (stops: 7)) !default;
+
+@function get-color( $which-color: 'main' ){
+  @if $palette and map-has-key( $palette, $which-color ) {
+    @return map-get( $palette, $which-color );
+  }
+  @return $color--default;
+}
+
+/*
+$commons: (
+'info': #6BD4F1
+, 'success': #86DEB7
+, 'warning': #FF9900
+, 'error': #FF715B
+, 'destructive': #BA7BA1
+, 'darkest': #111
+, 'brightest': #fff
+);
+
+$palette: map-merge( $commons, $pal ) !global;
+*/
+@mixin set-palette( $hue-start: #111, $hue-stop: #f9f9f9, $options: () ){
+  $palette--context: chromatic-scale($hue-start, $hue-stop, $options) !global;
+}
+
+$palette--element:() !global;
+
+
+/*
+_____
+
+CUSTOMIZATION STARTS HERE
+_____
+*/
+
+@include set-palette();

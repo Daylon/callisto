@@ -1,0 +1,23 @@
+@mixin inclusive-groups( $gutter-value: 0 ){
+  padding: $gutter-value;
+}
+
+.#{$callisto}-group{
+
+  &-s{
+    @include inclusive-groups( $half-gutter );
+  }
+
+  &-xs{
+    @include inclusive-groups( $gutter );
+  }
+
+  &,
+  &-m{
+    @include inclusive-groups( $double-gutter );
+  }
+
+  &-l{
+    @include inclusive-groups( $large-gutter );
+  }
+}

@@ -1,0 +1,61 @@
+/*
+_____
+
+TYPOGRAPHY SETUP
+_____
+*/
+
+@function check-font-size( $value: 1rem ) {
+  @if strip-unit($value) < strip-unit($font-size-min) {
+    @return $font-size-min;
+  }
+  @if strip-unit($value) > strip-unit($font-size-max) {
+    @return $font-size-max;
+  }
+  @return $value;
+}
+
+@function get-font-size( $factor: 1, $no-checks: false ) {
+  $abs-factor: .4166; // we try to stay as close as possible as having rounded number once printed out
+  $candidate: $factor * $abs-factor * $font-scale;
+  @if $candidate > 1 {
+    $candidate: round( $candidate );
+  }
+  $candidate: $candidate * 1rem;
+  @if $no-checks == true{
+    @return $candidate;
+  }
+  @return check-font-size( $candidate );
+}
+
+@function get-regular-font-size() {
+  @return get-font-size( 1 );
+}
+
+%typesetting {
+  @extend %line-height;
+  font-size: $font-size-default;
+
+  @media print{
+    font-size: $font-size-default--print;
+  }
+}
+
+%line-height {
+  line-height: $font-line-height;
+}
+
+:root{
+  @extend %typesetting;
+}
+
+/*
+  Font-size is comprised between a minimum and a maximum value
+  with the default size being the value passed to :root
+
+  Every derivated font-size (in root em) will be based upon it.
+*/
+$font-scale: 6/5; // 6:5, minor third
+$font-size-max: get-font-size( 2, true );
+$font-size-min: get-font-size( .76, true );
+$font-size-regular: get-regular-font-size();

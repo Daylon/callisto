@@ -1,0 +1,20 @@
+$callisto: "⭐";
+$theme: "lighter";
+
+$precision: 100; // two digits behind comma
+
+/*
+  Font-size is base on the smallest screen length…
+  … and deduced afterwards.
+*/
+$font-size-default: 2vw;
+$font-size-default--print: 12pt;
+
+/*
+  whatever the context,
+  we'd recommend to always have a line-height of 1.2 relative font-size
+  1.2 is actually a bit arbitrary but allows a line to breathe,
+  between line n descenders and n+1 ascenders.
+*/
+$line-height: 1.2;
+$font-line-height: unquote("#{$line-height}em");
