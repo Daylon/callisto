@@ -58,3 +58,43 @@ _____
 $font-size-max: get-font-size( 2, true );
 $font-size-min: get-font-size( .76, true );
 $font-size-regular: get-regular-font-size();
+
+/*
+  Why prefixing everything?
+
+  Have you ever find yourself digging through someone else's codebase
+  wondering if .row or .btn come from a vendor or a human colleague?
+
+  Prefixing is a way to namespace things while expressing what's in your project
+  come from this design system and what's yours.
+*/
+
+.#{$callisto}-h,
+.#{$callisto}-p {
+  margin: 0;
+
+  & + .#{$callisto}-h,
+  & + .#{$callisto}-p {
+    margin-top: $gutter;
+  }
+}
+
+.#{$callisto}-h{
+  @extend %line-height;
+}
+
+.#{$callisto}-p{
+  line-height: $line-height * 1.5;
+}
+
+.#{$callisto}-p {
+  font-size: get-regular-font-size();
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-alternates
+  // font-feature-settings: 'kern', 'onum', 'liga';
+  font-variant: normal; // TODO
+}
+
+.#{$callisto}-small{
+  font-size: $font-size-min;
+}
