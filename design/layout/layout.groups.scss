@@ -1,5 +1,10 @@
 @mixin inclusive-groups( $gutter-value: 0 ){
-  padding: $gutter-value;
+  padding: 0 $gutter-value;
+
+  &:not(:first-of-type){
+    padding-top: $gutter-value;
+    // if not the first group of the given tree, adds a padding-top
+  }
 }
 
 .#{$callisto}-group{
@@ -20,4 +25,5 @@
   &-l{
     @include inclusive-groups( $large-gutter );
   }
+
 }
