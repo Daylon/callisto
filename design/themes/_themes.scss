@@ -5,5 +5,8 @@
 
 .#{$callisto}-header{
   background-color: tomato;
-
 }
+
+$color-heading-maximus: navy;
+$color-heading-minus: tomato;
+$color-heading-range: 70; // how much should we mix color minus into color maximus?
