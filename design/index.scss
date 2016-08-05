@@ -9,19 +9,21 @@ Dependencies
   https://github.com/maxluster/chromatic-sass/blob/master/api.md
 */
 
-body{
-  background-image: chromatic-gradient(to right, blue, red);
-}
-
 @import 'utils/_utils';
 
 @import 'structure/_structure';
-@import 'structure/structure.typesetting';
 @import 'structure/structure.metrics';
 @import 'structure/structure.colors';
+@import 'structure/structure.typesetting';
 
 @import 'layout/_layout';
 @import 'layout/layout.scaffolding';
 @import 'layout/layout.groups';
 
 @import 'themes/_themes';
+
+
+/*
+  once there, any library may be influenced by custom values from themes
+*/
+@import 'content/content.headings';
