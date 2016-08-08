@@ -39,6 +39,7 @@ _____
 %typesetting {
   @extend %line-height;
   font-size: $font-size-default;
+  font-size: unquote("calc(#{$font-size-default} + 3pt)");
 
   @media print{
     font-size: $font-size-default--print;
@@ -150,7 +151,7 @@ $font-size-regular: get-regular-font-size();
 
 .#{$callisto}-as-columns{
 
-  @media screen and (min-width: $line-max-width){
+  @media screen and (min-width: ($line-max-width * 2)){
     column-count: 2;
     .#{$callisto}-p{
       & + &{
@@ -162,10 +163,10 @@ $font-size-regular: get-regular-font-size();
       }
     }
   }
-  @media screen and (min-width: ($line-max-width * 2)){
+  @media screen and (min-width: ($line-max-width * 3)){
     column-count: 3;
   }
-  @media screen and (min-width: ($line-max-width * 3)){
+  @media screen and (min-width: ($line-max-width * 4)){
     column-count: 4;
   }
 }
