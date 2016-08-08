@@ -1,4 +1,7 @@
 # Callisto
+
+[![Dependency Status](https://dependencyci.com/github/Daylon/callisto/badge)](https://dependencyci.com/github/Daylon/callisto)
+
 Lo-fat Design System
 
 
