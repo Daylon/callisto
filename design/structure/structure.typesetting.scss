@@ -41,17 +41,19 @@ _____
   font-size: $font-size-default;
   font-size: unquote("calc(#{$font-size-default} + 3pt)");
 
-  @media print{
+  /*
+  @media print {
     font-size: $font-size-default--print;
   }
+  */
 }
 
-:root{
+:root {
   @extend %typesetting;
 }
 
-body{
-  font-size: .5em; // seems counter-intuitive?
+body {
+  font-size: 1em; // seems counter-intuitive?
   // default font-size in an element without specificity should be considered as "minor"
   // and, as such, being smaller then element with any/higher specificity
   // any subsequent root-em defined in any child will, by the way,
@@ -87,32 +89,31 @@ $font-size-regular: get-regular-font-size();
 
 .#{$callisto}-h,
 .#{$callisto}-p {
-  & + .#{$callisto}-h,
   & + .#{$callisto}-p {
+    margin-top: $half-gutter;
+  }
+
+  & + .#{$callisto}-h {
     margin-top: $gutter;
   }
 }
 
 .#{$callisto}-h,
-.#{$callisto}-chapter{
+.#{$callisto}-chapter {
   margin: 0;
 
-  & + .#{$callisto}-chapter{
+  & + .#{$callisto}-chapter {
     margin-top: $double-gutter;
   }
 }
 
-.#{$callisto}-h{
+.#{$callisto}-h {
   @extend %line-height;
 }
 
-.#{$callisto}-chapter{
+.#{$callisto}-chapter {
   display: block;
   width: 100%;
-}
-
-.#{$callisto}-p{
-  line-height: $line-height * 1.5;
 }
 
 .#{$callisto}-p {
@@ -121,23 +122,24 @@ $font-size-regular: get-regular-font-size();
   // https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-alternates
   // font-feature-settings: 'kern', 'onum', 'liga';
   font-variant: normal; // TODO
+  line-height: $line-height * 1.5;
 }
 
-.#{$callisto}-small{
+.#{$callisto}-small {
   font-size: $font-size-min;
 }
 
-.#{$callisto}-is-justified{
+.#{$callisto}-is-justified {
   &,
-  &-fuma{
+  &-fuma {
     text-align: justify;
   }
 
-  &{
+  & {
     hyphens: auto;
   }
 
-  &-fuma{ // full manual!
+  &-fuma { // full manual!
     hyphens: manual;
     // Please read the documentation:
     // http://caniuse.com/#search=hyphen
@@ -149,24 +151,39 @@ $font-size-regular: get-regular-font-size();
   }
 }
 
-.#{$callisto}-as-columns{
+.#{$callisto}-as-columns {
 
-  @media screen and (min-width: ($line-max-width * 2)){
+  @media screen and (min-width: ($line-max-width * 2)) {
     column-count: 2;
-    .#{$callisto}-p{
+    .#{$callisto}-p {
       & + &{
         padding-left: 0;
       }
 
-      &:not(:last-of-type){
+      &:not(:last-of-type) {
         padding-right: 0;
       }
     }
   }
-  @media screen and (min-width: ($line-max-width * 3)){
+  @media screen and (min-width: ($line-max-width * 3)) {
     column-count: 3;
   }
-  @media screen and (min-width: ($line-max-width * 4)){
+  @media screen and (min-width: ($line-max-width * 4)) {
     column-count: 4;
   }
+}
+
+.#{$callisto}-small {
+  font-size: $font-downsized-default / $font-scale;
+}
+
+.#{$callisto}-pre {
+  /*
+    Defaults introduce changes to <pre> that we *need*
+    to counteract
+  */
+  display: block;
+  width: $size-width--as-collapsed;
+  font-size: $font-downsized-default;
+  white-space: normal;
 }

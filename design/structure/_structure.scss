@@ -7,16 +7,20 @@ $precision: 100; // two digits behind comma
   Font-size is base on the smallest screen length…
   … and deduced afterwards.
 */
-$font-size-default: 2vw;
+$font-size-default: 24px; // 2vw is nice, but needs more fancy stuff to guard unexpected result
 $font-size-default--print: 12pt;
 $font-scale: 6/5; // rythm -> 6:5, minor third
+$font-downsized-default: .5em; // which, well, makes a nice default…?
 
 /*
   whatever the context,
-  we'd recommend to always have a line-height of 1.2 relative font-size
+  we'd recommend to always have a min. line-height of 1.2 relative font-size
   1.2 is actually a bit arbitrary but allows a line to breathe,
   between line n descenders and n+1 ascenders.
 */
 $line-max-width: 44em;
 $line-height: $font-scale;
 $font-line-height: unquote("#{$line-height}em");
+
+$size-width--as-collapsed: 60%;
+$size-width--content: 80%;

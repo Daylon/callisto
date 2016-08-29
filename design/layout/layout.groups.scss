@@ -1,5 +1,5 @@
 @mixin inclusive-groups( $gutter-value: 0 ){
-  padding: 0 $gutter-value;
+  padding: 0;
 
   &:not(:first-of-type),
   &.#{$callisto}-as-standalone{
@@ -12,23 +12,44 @@
   }
 }
 
-.#{$callisto}-group{
+.#{$callisto}-header {
+  padding: $gutter;
+  padding-top: $double-gutter;
 
-  &-s{
+  .#{$callisto}-h {
+    width: $size-width--content;
+  }
+}
+
+.#{$callisto}-group {
+
+  & + & {
+    margin-top: $double-gutter;
+  }
+
+  &--root > & {
+    padding-left: $gutter;
+    padding-right: $gutter;
+  }
+
+  &-s {
     @include inclusive-groups( $half-gutter );
   }
 
-  &-xs{
+  &-xs {
     @include inclusive-groups( $gutter );
   }
 
   &,
-  &-m{
+  &-m {
     @include inclusive-groups( $double-gutter );
   }
 
-  &-l{
+  &-l {
     @include inclusive-groups( $large-gutter );
   }
 
+  &.#{$callisto}-chapter {
+    padding-bottom: 0;
+  }
 }
