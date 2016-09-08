@@ -159,18 +159,3 @@ $font-size-regular: get-regular-font-size();
     column-count: 4;
   }
 }
-
-.#{$callisto}-small {
-  font-size: $font-downsized-default / $font-scale;
-}
-
-.#{$callisto}-pre {
-  /*
-    Defaults introduce changes to <pre> that we *need*
-    to counteract
-  */
-  display: block;
-  width: $size-width--as-collapsed;
-  font-size: $font-downsized-default;
-  white-space: normal;
-}

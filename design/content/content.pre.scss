@@ -1,0 +1,10 @@
+.#{$callisto}-pre {
+  @extend %size-w-minored;
+  /*
+    Defaults introduce changes to <pre> that we *need*
+    to counteract
+  */
+  display: block;
+  font-size: $font-downsized-default;
+  white-space: normal;
+}

@@ -35,3 +35,8 @@ body {
   // get the **root** value and not the body one.
   font-family: sans-serif;
 }
+
+%size-w-minored {
+  width: $size-width--content * .75;
+  width: unquote( "calc( #{$size-width--content} - #{$gutter} )" );
+}
