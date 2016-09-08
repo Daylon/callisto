@@ -36,7 +36,17 @@ body {
   font-family: sans-serif;
 }
 
-%size-w-minored {
-  width: $size-width--content * .75;
-  width: unquote( "calc( #{$size-width--content} - #{$gutter} )" );
+$size-width--as-collapsed: (
+  fallback: $size-width--content * .75
+  , default: unquote( "calc( #{$size-width--content} - #{$gutter} )" )
+);
+
+%size--w-minored {
+  width: map-get( $size-width--as-collapsed, fallback );
+  width: map-get( $size-width--as-collapsed, default );
+}
+
+%size--max-w-minored {
+  max-width: map-get( $size-width--as-collapsed, fallback );
+  max-width: map-get( $size-width--as-collapsed, default );
 }

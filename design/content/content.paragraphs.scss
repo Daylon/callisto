@@ -1,6 +1,6 @@
 .#{$callisto}-p{
   &.#{$callisto}-as-body{
-    max-width: $line-max-width;
+    @extend %size--max-w-minored;
     // if we consider a glyph as an box of 1em width by default
     // e.g. the size of a lead piece the size of the letter "m"
     // and considering than, better then the classic/recommended 60-75 max-signs
