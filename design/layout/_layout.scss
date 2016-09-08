@@ -5,6 +5,10 @@
   _____
 */
 
+:root {
+  @extend %typesetting;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -21,4 +25,13 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-size: 1em; // seems counter-intuitive?
+  // default font-size in an element without specificity should be considered as "minor"
+  // and, as such, being smaller then element with any/higher specificity
+  // any subsequent root-em defined in any child will, by the way,
+  // get the **root** value and not the body one.
+  font-family: sans-serif;
 }
