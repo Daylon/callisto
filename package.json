@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "chromatic-sass": "^0.1.7",
-    "normalize.css": "^4.1.1"
+    "normalize.css": "^5.0.0"
   },
   "eslintConfig": {
     "extends": "xo"
