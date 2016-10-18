@@ -1,12 +1,18 @@
-[data-#{$callisto}-theme="#{$theme}"]{
-  color: #333;
-  background-color: #f1eddb;
+@mixin default-theme(){
+  [data-#{$callisto}-theme="#{$theme}"]{
+    color: #333;
+    background-color: #f1eddb;
+  }
+
+  .#{$callisto}-header{
+    background-color: tomato;
+  }
+
+  $color-heading-maximus: navy;
+  $color-heading-minus: tomato;
+  $color-heading-range: 70; // how much should we mix color minus into color maximus?
 }
 
-.#{$callisto}-header{
-  background-color: tomato;
+@if variable-exists( 'callisto-settings--use-theme' ) {
+  @include default-theme;
 }
-
-$color-heading-maximus: navy;
-$color-heading-minus: tomato;
-$color-heading-range: 70; // how much should we mix color minus into color maximus?
