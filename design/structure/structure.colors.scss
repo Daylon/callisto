@@ -5,11 +5,11 @@ COLORS
 _____
 */
 
+$color--default: #F710DF;
+
 $color-white-apex: #fff !default;
 $color-black-apex: #000 !default;
-
-$color--default: #F710DF;
-$color-list--context: chromatic-scale(black, white, (stops: 7)) !default;
+$color-list--context: chromatic-scale($color-black-apex, $color-white-apex, (stops: 7)) !default;
 
 @function get-color( $which-color: 'main' ){
   @if $palette and map-has-key( $palette, $which-color ) {
