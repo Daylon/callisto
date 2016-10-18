@@ -18,8 +18,10 @@
       in this template,
       h6 is set to the SAME font-size than basic elements
       like <p>, etc.
+
+      here, "1" means "one root em" e.g. 24px
     */
-    $value: set-precision( $font-size-regular + ( $font-size-max * ( 6 - $i ) ) );
+    $value: set-precision( 1 + ( $font-size-max - 1 ) * ( $i - 6 ) / -5 );
     font-size: $value;
 
     &.#{$callisto}-as-default {
