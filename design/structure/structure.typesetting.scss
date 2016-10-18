@@ -39,13 +39,6 @@ _____
 %typesetting {
   @extend %line-height;
   font-size: $font-size-default;
-  font-size: unquote("calc(#{$font-size-default} + 3pt)");
-
-  /*
-  @media print {
-    font-size: $font-size-default--print;
-  }
-  */
 }
 
 /*
@@ -54,7 +47,7 @@ _____
 
   Every derivated font-size (in root em) will be based upon it.
 */
-$font-size-max: get-font-size( 2, true );
+$font-size-max: get-font-size( $font-max-scale, true );
 $font-size-min: get-font-size( .76, true );
 $font-size-regular: get-regular-font-size();
 
