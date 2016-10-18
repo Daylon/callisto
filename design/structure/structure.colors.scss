@@ -5,12 +5,8 @@ COLORS
 _____
 */
 
-$color-white-apex: #f2f2f2;
-$color-black-apex: #222;
-
-$color-white-apex: #fff;
-$color-black-apex: #000;
-
+$color-white-apex: #fff !default;
+$color-black-apex: #000 !default;
 
 $color--default: #F710DF;
 $color-list--context: chromatic-scale(black, white, (stops: 7)) !default;
