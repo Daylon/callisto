@@ -37,7 +37,7 @@
     "gulp-sourcemaps": "^2.0.1",
     "require-dir": "^0.3.0",
     "sass-lint": "^1.8.2",
-    "mjml": "^2.3.3"
+    "mjml": "^3.0.0"
   },
   "dependencies": {
     "chromatic-sass": "^0.1.7",
