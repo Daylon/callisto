@@ -5,7 +5,7 @@
   _____
 */
 
-$gutter: ( $line-height * $font-size-default );
+$gutter: 1rem;
 $half-gutter: $gutter / 2;
 $double-gutter: $gutter * 2;
 $large-gutter: $gutter * 4;
