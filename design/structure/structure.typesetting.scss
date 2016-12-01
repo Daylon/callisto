@@ -19,7 +19,7 @@ _____
   $abs-factor: .4166; // we try to stay as close as possible as having rounded number once printed out
   $candidate: $factor * $abs-factor * $font-scale;
   @if $candidate > 1 {
-    $candidate: round( $candidate );
+    $candidate: $candidate - ( $candidate % .5 ); // we should at least authorise half-steps
   }
   $candidate: $candidate * 1rem;
   @if $no-checks == true{
@@ -29,7 +29,7 @@ _____
 }
 
 @function get-regular-font-size() {
-  @return get-font-size( 1 );
+  @return get-font-size( $font-size-default-scale );
 }
 
 %line-height {
