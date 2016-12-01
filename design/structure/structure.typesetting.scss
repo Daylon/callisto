@@ -16,12 +16,11 @@ _____
 }
 
 @function get-font-size( $factor: 1, $no-checks: false ) {
-  $abs-factor: .4166; // we try to stay as close as possible as having rounded number once printed out
-  $candidate: $factor * $abs-factor * $font-scale;
-  @if $candidate > 1 {
-    $candidate: $candidate - ( $candidate % .5 ); // we should at least authorise half-steps
+  @if $factor > 1 {
+    $factor: $factor - ( $factor % .5 ); // we should at least authorise half-steps
   }
-  $candidate: $candidate * 1rem;
+  $abs-factor: .4166; // we try to stay as close as possible as having rounded number once printed out
+  $candidate: $factor * $abs-factor * $font-scale * 1rem;
   @if $no-checks == true{
     @return $candidate;
   }
@@ -48,7 +47,7 @@ _____
   Every derivated font-size (in root em) will be based upon it.
 */
 $font-size-max: get-font-size( $font-max-scale, true );
-$font-size-min: get-font-size( .76, true );
+$font-size-min: get-font-size( $font-min-scale, true );
 $font-size-regular: get-regular-font-size();
 
 /*

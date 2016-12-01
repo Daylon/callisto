@@ -9,8 +9,9 @@ $precision: 100; // two digits behind comma
 */
 $font-size-default: 24px !default; // 2vw is nice, but needs more fancy stuff to guard unexpected result
 $font-size-default--print: 12pt !default;
-$font-size-default-scale: 1 !default;
 $font-scale: 6/5 !default; // rythm -> 6:5, minor third
+$font-min-scale: .76 !default;
+$font-size-default-scale: 1 !default;
 $font-max-scale: 5 !default;
 $font-downsized-default: .5em !default; // which, well, makes a nice default…?
 
