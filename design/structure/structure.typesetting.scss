@@ -15,12 +15,13 @@ _____
   @return $value;
 }
 
-@function get-font-size( $factor: 1, $no-checks: false ) {
+@function get-font-size( $factor: $font-size-default-scale, $no-checks: false ) {
   @if $factor > 1 {
     $factor: $factor - ( $factor % .5 ); // we should at least authorise half-steps
   }
-  $abs-factor: .4166; // we try to stay as close as possible as having rounded number once printed out
-  $candidate: $factor * $abs-factor * $font-scale * 1rem;
+  // $font-scale
+  //$abs-factor: .4166; // we try to stay as close as possible as having rounded number once printed out
+  $candidate: $factor / $font-scale - ( 1 / $font-scale - 1 ) * 1rem;
   @if $no-checks == true{
     @return $candidate;
   }
@@ -28,7 +29,7 @@ _____
 }
 
 @function get-regular-font-size() {
-  @return get-font-size( $font-size-default-scale );
+  @return get-font-size();
 }
 
 %line-height {
@@ -46,8 +47,8 @@ _____
 
   Every derivated font-size (in root em) will be based upon it.
 */
-$font-size-max: get-font-size( $font-max-scale, true );
-$font-size-min: get-font-size( $font-min-scale, true );
+$font-size-max: get-font-size( $font-max-scale, true ); // we'd rather avoid calling a variable that doesn't exist yet
+$font-size-min: $font-size-min-threshold * 1rem;
 $font-size-regular: get-regular-font-size();
 
 /*
