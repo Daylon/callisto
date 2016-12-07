@@ -11,7 +11,7 @@ $precision: 100; // two digits behind comma
 $font-size-default: 16px !default; // vw units are nice, but need more fancy stuff to guard us against unexpected results
 $font-size-default--print: 12pt !default;
 // scales
-$font-scale: 6/5 !default; // rythm -> 6:5, minor third
+$font-scale: 6/5 !default; // rhythm -> 6:5, minor third
 $font-size-default-scale: 1 !default; // but I'd recommend you to stick with font-size-default tinkering.
 // min, max
 $font-size-min-threshold: .3 !default; // ROOT EM — what is the very minimum font-size you'd agree to?
