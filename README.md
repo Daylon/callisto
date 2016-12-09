@@ -10,7 +10,7 @@ _**Disclaimer:** this is an early version that wouldn't be suitable for producti
 
 > "Yeup, but I'd want to use it anyway!"
 
-[Okay, then](./#usage).
+[Okay, then](https://github.com/daylon/callisto#usage).
 
 ----
 
