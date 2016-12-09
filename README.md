@@ -142,8 +142,9 @@ While for values below **1**, Callisto will compute it as is, values _above_ **1
 
 ### Notable dependencies
 
-Nope! None!
-… But [Gulp](https://github.com/gulpjs/gulp) for all automated transformation tasks.
+Nope! Hu… Almost none:
+- [Chromatic-sass](https://github.com/maxluster/chromatic-sass) for better color handling;
+… And [Gulp](https://github.com/gulpjs/gulp) for all automated transformation tasks.
 
 
 
