@@ -36,6 +36,11 @@ body {
   font-family: sans-serif;
 }
 
+input[disabled],
+button[disabled] { // as per Jake Archibald's recommendation: https://jakearchibald.com/2017/events-and-disabled-form-fields/
+  pointer-events: none;
+}
+
 $size-width--as-collapsed: (
   fallback: $size-width--content * .75
   , default: unquote( "calc( #{$size-width--content} - #{$gutter} )" )
