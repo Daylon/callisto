@@ -47,3 +47,9 @@
     padding-bottom: 0;
   }
 }
+
+.#{$callisto}-part {
+	& + & {
+		margin-top: $gutter;
+	}
+}
