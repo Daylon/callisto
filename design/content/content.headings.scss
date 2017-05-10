@@ -32,3 +32,11 @@
     }
   }
 }
+
+@mixin get-heading-as( $i: 1 ){
+	@if $i > 6 {
+		$i: 6;
+	}
+	$value: set-precision( 1 + ( $font-size-max - 1 ) * ( $i - 6 ) / -5 );
+	font-size: $value;
+}
