@@ -1,8 +1,6 @@
 # Callisto
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/Daylon/callisto.svg)](https://greenkeeper.io/)
-
-[![Dependency Status](https://dependencyci.com/github/Daylon/callisto/badge)](https://dependencyci.com/github/Daylon/callisto)
+[![Greenkeeper badge](https://badges.greenkeeper.io/Daylon/callisto.svg)](https://greenkeeper.io/) [![Dependency Status](https://dependencyci.com/github/Daylon/callisto/badge)](https://dependencyci.com/github/Daylon/callisto)
 
 Lo-fat Design System
 
