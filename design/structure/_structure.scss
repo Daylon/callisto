@@ -29,3 +29,9 @@ $line-max-width: 44em !default;
 $line-height: $font-scale !default;
 
 $size-width--content: 80% !default;
+
+/*
+	The following will help, combined with media queries, to target specific devices
+		e.g. "(-ms-high-contrast:none)" will target only Windows' IE11
+*/
+$MODIFIER--target-ie11: "(-ms-high-contrast:none)";
