@@ -1,5 +1,5 @@
-$callisto: "⭐" !default; // hey, you can name it as you see fit
-$theme: "lighter";
+$callisto: '⭐' !default; // hey, you can name it as you see fit
+$theme: 'lighter';
 
 $precision: 100; // two digits behind comma
 
@@ -14,10 +14,11 @@ $font-size-default--print: 12pt !default;
 $font-scale: 6/5 !default; // rhythm -> 6:5, minor third
 $font-size-default-scale: 1 !default; // but I'd recommend you to stick with font-size-default tinkering.
 // min, max
-$font-size-min-threshold: .3 !default; // ROOT EM — what is the very minimum font-size you'd agree to?
+$font-size-min-threshold: 0.3 !default; // ROOT EM — what is the very minimum font-size you'd agree to?
 $font-max-scale: 4 !default; // VALUE — this one is scale-based and computed later on
 // infer constants
-$font-size-min-factor: ( 1 / $font-scale - 1 - $font-size-min-threshold ) * $font-scale;
+$font-size-min-factor: (1 / $font-scale - 1 - $font-size-min-threshold) *
+	$font-scale;
 
 /*
   whatever the context,
@@ -25,7 +26,7 @@ $font-size-min-factor: ( 1 / $font-scale - 1 - $font-size-min-threshold ) * $fon
   1.2 is actually a bit arbitrary but allows a line to breathe,
   between line n descenders and n+1 ascenders.
 */
-$line-max-width: 44em !default;
+$line-max-width: 65ch !default;
 $line-height: $font-scale !default;
 
 $size-width--content: 80% !default;
@@ -34,4 +35,4 @@ $size-width--content: 80% !default;
 	The following will help, combined with media queries, to target specific devices
 		e.g. "(-ms-high-contrast:none)" will target only Windows' IE11
 */
-$MODIFIER--target-ie11: "(-ms-high-contrast:none)";
+$MODIFIER--target-ie11: '(-ms-high-contrast:none)';
