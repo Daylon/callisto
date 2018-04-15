@@ -5,40 +5,41 @@ TYPESETTING
 _____
 */
 
-@function check-font-size( $value: 1rem ) {
-  @if strip-unit($value) < strip-unit($font-size-min) {
-    @return $font-size-min;
-  }
-  @if strip-unit($value) > strip-unit($font-size-max) {
-    @return $font-size-max;
-  }
-  @return $value;
+@function check-font-size($value: 1rem) {
+	@if strip-unit($value) < strip-unit($font-size-min) {
+		@return $font-size-min;
+	}
+	@if strip-unit($value) > strip-unit($font-size-max) {
+		@return $font-size-max;
+	}
+	@return $value;
 }
 
-@function get-font-size( $factor: $font-size-default-scale, $no-checks: false ) {
-  @if $factor > 1 {
-    $factor: $factor - ( $factor % .5 ); // we should at least authorise half-steps
-  }
-  // $font-scale
-  //$abs-factor: .4166; // we try to stay as close as possible as having rounded number once printed out
-  $candidate: $factor / $font-scale - ( 1 / $font-scale - 1 ) * 1rem;
-  @if $no-checks == true{
-    @return $candidate;
-  }
-  @return check-font-size( $candidate );
+@function get-font-size($factor: $font-size-default-scale, $no-checks: false) {
+	@if $factor > 1 {
+		$factor: $factor -
+			($factor % 0.5); // we should at least authorise half-steps
+	}
+	// $font-scale
+	//$abs-factor: .4166; // we try to stay as close as possible as having rounded number once printed out
+	$candidate: $factor / $font-scale - (1 / $font-scale - 1) * 1rem;
+	@if $no-checks == true {
+		@return $candidate;
+	}
+	@return check-font-size($candidate);
 }
 
 @function get-regular-font-size() {
-  @return get-font-size();
+	@return get-font-size();
 }
 
 %line-height {
-  line-height: $line-height;
+	line-height: $line-height;
 }
 
 %typesetting {
-  @extend %line-height;
-  font-size: $font-size-default;
+	@extend %line-height;
+	font-size: $font-size-default;
 }
 
 /*
@@ -47,7 +48,10 @@ _____
 
   Every derivated font-size (in root em) will be based upon it.
 */
-$font-size-max: get-font-size( $font-max-scale, true ); // we'd rather avoid calling a variable that doesn't exist yet
+$font-size-max: get-font-size(
+	$font-max-scale,
+	true
+); // we'd rather avoid calling a variable that doesn't exist yet
 $font-size-min: $font-size-min-threshold * 1rem;
 $font-size-regular: get-regular-font-size();
 
@@ -64,106 +68,102 @@ $font-size-regular: get-regular-font-size();
 .#{$callisto}-h,
 .#{$callisto}-chapter,
 .#{$callisto}-p {
-  margin: 0;
+	margin: 0;
 }
 
 .#{$callisto}-h,
 .#{$callisto}-p {
-  & + .#{$callisto}-p {
-    margin-top: $half-gutter;
-  }
+	& + .#{$callisto}-p {
+		margin-top: $half-gutter;
+	}
 
-  & + .#{$callisto}-h {
-    margin-top: $gutter;
-  }
+	& + .#{$callisto}-h {
+		margin-top: $gutter;
+	}
 }
 
 .#{$callisto}-h,
 .#{$callisto}-chapter {
-  margin: 0;
+	margin: 0;
 
-  & + .#{$callisto}-chapter {
-    margin-top: $double-gutter;
-  }
+	& + .#{$callisto}-chapter {
+		margin-top: $double-gutter;
+	}
 }
 
 .#{$callisto}-h {
-  @extend %line-height;
+	@extend %line-height;
+	max-width: $line-max-width--headings;
 }
 
 .#{$callisto}-chapter {
-  display: block;
-  width: 100%;
+	display: block;
+	width: 100%;
 }
 
 .#{$callisto}-p {
-  font-size: get-regular-font-size();
-  // https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant
-  // https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-alternates
-  // font-feature-settings: 'kern', 'onum', 'liga';
-  font-variant: normal; // TODO
-  line-height: $line-height * 1.5;
+	font-size: get-regular-font-size();
+	// https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant
+	// https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-alternates
+	// font-feature-settings: 'kern', 'onum', 'liga';
+	font-variant: normal; // TODO
+	line-height: $line-height * 1.5;
 }
 
 .#{$callisto}-small {
-  font-size: $font-size-min;
+	font-size: $font-size-min;
 }
 
 .#{$callisto}-is-justified {
-  &,
-  &-fuma {
-    text-align: justify;
-  }
+	&,
+	&-fuma {
+		text-align: justify;
+	}
 
-  & {
-    hyphens: auto;
-  }
+	& {
+		hyphens: auto;
+	}
 
-  &-fuma { // full manual!
-    hyphens: manual;
-    // Please read the documentation:
-    // http://caniuse.com/#search=hyphen
-    // https://developer.mozilla.org/en/docs/Web/CSS/hyphens#Suggesting_line_break_opportunities
-    // While setting manually set your bodycopy is preferred,
-    // please note that it requires you to inform your content with proper html entities
-    // i.e.
-    //    &shy; and &hyphen;
-  }
+	&-fuma {
+		// full manual!
+		hyphens: manual;
+		// Please read the documentation:
+		// http://caniuse.com/#search=hyphen
+		// https://developer.mozilla.org/en/docs/Web/CSS/hyphens#Suggesting_line_break_opportunities
+		// While setting manually set your bodycopy is preferred,
+		// please note that it requires you to inform your content with proper html entities
+		// i.e.
+		//    &shy; and &hyphen;
+	}
 }
 
 .#{$callisto}-as-columns {
+	@media screen and (min-width: ($line-max-width * 2)) {
+		column-count: 2;
+		.#{$callisto}-p {
+			& + & {
+				padding-left: 0;
+			}
 
-  @media screen and (min-width: ($line-max-width * 2)) {
-    column-count: 2;
-    .#{$callisto}-p {
-      & + &{
-        padding-left: 0;
-      }
-
-      &:not(:last-of-type) {
-        padding-right: 0;
-      }
-    }
-  }
-  @media screen and (min-width: ($line-max-width * 3)) {
-    column-count: 3;
-  }
-  @media screen and (min-width: ($line-max-width * 4)) {
-    column-count: 4;
-  }
+			&:not(:last-of-type) {
+				padding-right: 0;
+			}
+		}
+	}
+	@media screen and (min-width: ($line-max-width * 3)) {
+		column-count: 3;
+	}
+	@media screen and (min-width: ($line-max-width * 4)) {
+		column-count: 4;
+	}
 }
 
 .use-system-sans-serif {
-  font-family: -apple-system, BlinkMacSystemFont, /* MacOS and iOS */
-               'avenir next', avenir, /* MacOS and iOS */
-               'Segoe UI', /* Windows */
-               'lucida grande', /* Older MacOS */
-               'helvetica neue', helvetica, /* Older MacOS */
-               'Fira Sans', /* Firefox OS */
-               roboto, noto, /* Google stuff */
-               'Droid Sans', /* Old Google stuff */
-               cantarell, oxygen, ubuntu, /* Linux stuff */
-               'franklin gothic medium', 'century gothic', /* Windows stuff */
-               'Liberation Sans', /* Linux */
-               sans-serif; /* Everything else */
+	font-family: -apple-system, BlinkMacSystemFont,
+		/* MacOS and iOS */ 'avenir next', avenir, /* MacOS and iOS */ 'Segoe UI',
+		/* Windows */ 'lucida grande', /* Older MacOS */ 'helvetica neue', helvetica,
+		/* Older MacOS */ 'Fira Sans', /* Firefox OS */ roboto, noto,
+		/* Google stuff */ 'Droid Sans', /* Old Google stuff */ cantarell, oxygen,
+		ubuntu, /* Linux stuff */ 'franklin gothic medium', 'century gothic',
+		/* Windows stuff */ 'Liberation Sans', /* Linux */ sans-serif; /* Everything else */
 }

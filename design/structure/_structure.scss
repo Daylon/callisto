@@ -28,6 +28,7 @@ $font-size-min-factor: (1 / $font-scale - 1 - $font-size-min-threshold) *
 */
 $line-max-width: 75ch !default; // this value applies to desktop
 $line-max-width--mobile: 50ch !default; // this value applies to small devices
+$line-max-width--headings: 40ch !default; // large size texts require narrower spaces to stay legible
 $line-height: $font-scale !default;
 
 $size-width--content: 80% !default;
