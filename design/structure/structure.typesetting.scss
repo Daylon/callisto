@@ -107,7 +107,7 @@ $font-size-regular: get-regular-font-size();
 	// https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-alternates
 	// font-feature-settings: 'kern', 'onum', 'liga';
 	font-variant: normal; // TODO
-	line-height: $line-height * 1.5;
+	line-height: $line-height * 1.3;
 }
 
 .#{$callisto}-small {
