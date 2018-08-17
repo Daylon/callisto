@@ -14,7 +14,7 @@ $font-size-default--print: 12pt !default;
 $font-scale: 6/5 !default; // rhythm -> 6:5, minor third
 $font-size-default-scale: 1 !default; // but I'd recommend you to stick with font-size-default tinkering.
 // min, max
-$font-size-min-threshold: 0.3 !default; // ROOT EM — what is the very minimum font-size you'd agree to?
+$font-size-min-threshold: 0.75 !default; // ROOT EM — what is the very minimum font-size you'd agree to?
 $font-max-scale: 4 !default; // VALUE — this one is scale-based and computed later on
 // infer constants
 $font-size-min-factor: (1 / $font-scale - 1 - $font-size-min-threshold) *
