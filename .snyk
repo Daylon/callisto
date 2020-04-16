@@ -1,0 +1,25 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-450202:
+    - sass-lint > globule > lodash:
+        patched: '2020-04-16T06:00:44.752Z'
+    - sass-lint > eslint > lodash:
+        patched: '2020-04-16T06:00:44.752Z'
+    - gulp-sass > node-sass > sass-graph > lodash:
+        patched: '2020-04-16T06:00:44.752Z'
+    - sass-lint > eslint > inquirer > lodash:
+        patched: '2020-04-16T06:00:44.752Z'
+    - sass-lint > eslint > table > lodash:
+        patched: '2020-04-16T06:00:44.752Z'
+    - gulp-sass > node-sass > gaze > globule > lodash:
+        patched: '2020-04-16T06:00:44.752Z'
+  'npm:minimatch:20160620':
+    - gulp > vinyl-fs > glob-stream > minimatch:
+        patched: '2020-04-16T06:00:44.752Z'
+    - gulp > vinyl-fs > glob-watcher > gaze > globule > minimatch:
+        patched: '2020-04-16T06:00:44.752Z'
+    - gulp > vinyl-fs > glob-watcher > gaze > globule > glob > minimatch:
+        patched: '2020-04-16T06:00:44.752Z'

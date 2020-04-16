@@ -4,7 +4,9 @@
   "description": "Callisto is a lightweight, sensible design system putting an emphasis on low footprint, context and durability",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -26,7 +28,7 @@
   "homepage": "https://github.com/Daylon/callisto#readme",
   "devDependencies": {
     "del": "^3.0.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-csso": "^3.0.0",
     "gulp-ext-replace": "^0.3.0",
@@ -36,13 +38,15 @@
     "gulp-sequence": "^1.0.0",
     "gulp-sourcemaps": "^2.6.1",
     "require-dir": "^1.0.0",
-    "sass-lint": "^1.8.2"
+    "sass-lint": "^1.13.0"
   },
   "dependencies": {
     "chromatic-sass": "^0.1.7",
-    "normalize.css": "^8.0.0"
+    "normalize.css": "^8.0.0",
+    "snyk": "^1.305.1"
   },
   "eslintConfig": {
     "extends": "xo"
-  }
+  },
+  "snyk": true
 }
