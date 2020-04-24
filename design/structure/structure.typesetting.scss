@@ -75,7 +75,6 @@ $font-size-regular: get-regular-font-size();
 .#{$callisto}-p {
 	& + .#{$callisto}-p {
 		margin-top: $half-gutter;
-		display: inline-block;
 	}
 
 	& + .#{$callisto}-h {
