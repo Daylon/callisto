@@ -22,6 +22,16 @@ patch:
         patched: '2020-04-22T11:25:17.102Z'
     - gulp-sass > node-sass > gaze > globule > lodash:
         patched: '2020-04-22T11:25:17.102Z'
+    - snyk > @snyk/dep-graph > lodash:
+        patched: '2020-04-22T11:26:19.581Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > lodash:
+        patched: '2020-04-22T11:26:19.581Z'
+    - snyk > snyk-mvn-plugin > @snyk/java-call-graph-builder > lodash:
+        patched: '2020-04-22T11:26:19.581Z'
+    - snyk > snyk-nuget-plugin > dotnet-deps-parser > lodash:
+        patched: '2020-04-22T11:26:19.581Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/cocoapods-lockfile-parser > @snyk/dep-graph > lodash:
+        patched: '2020-04-22T11:26:19.581Z'
   'npm:minimatch:20160620':
     - gulp > vinyl-fs > glob-stream > minimatch:
         patched: '2020-04-22T11:25:17.102Z'
