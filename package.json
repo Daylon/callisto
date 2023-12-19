@@ -34,16 +34,16 @@
     "gulp-ext-replace": "^0.3.0",
     "gulp-group-css-media-queries": "^1.1.0",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-sass": "^4.0.1",
+    "gulp-sass": "^5.0.0",
     "gulp-sequence": "^1.0.0",
-    "gulp-sourcemaps": "^2.6.1",
+    "gulp-sourcemaps": "^3.0.0",
     "require-dir": "^1.0.0",
     "sass-lint": "^1.13.0"
   },
   "dependencies": {
     "chromatic-sass": "^0.1.7",
     "normalize.css": "^8.0.0",
-    "snyk": "^1.307.0"
+    "snyk": "^1.996.0"
   },
   "eslintConfig": {
     "extends": "xo"
